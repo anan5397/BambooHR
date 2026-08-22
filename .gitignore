@@ -1,0 +1,18 @@
+# Secrets
+.env
+client_secret.json
+token.json
+oauth_client.json
+bamboohrkey.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Personal documents
+Piyapong Rahut Cultural Fit Interview Slides (Oct 2023).pptx
+Things to learn.docx
