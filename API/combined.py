@@ -9,13 +9,13 @@ from google.auth.transport.requests import Request
 
 from fastapi import FastAPI
 
-
+#TESTING asdfasdfasdfasdfasdfasdfasdfasdfasd
 # =========================
 # BAMBOOHR CONFIGURATION
 # =========================
 
 load_dotenv()
-
+print("YOLO")
 api_key = os.getenv("BAMBOO_API_KEY")
 subdomain = os.getenv("BAMBOO_SUBDOMAIN")
 
