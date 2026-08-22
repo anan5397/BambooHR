@@ -6,10 +6,9 @@ from dotenv import load_dotenv
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
-
 from fastapi import FastAPI
 
-#Testing
+
 # =========================
 # BAMBOOHR CONFIGURATION
 # =========================
@@ -34,15 +33,12 @@ SCOPES = [
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-client_secret = os.path.join(
-    BASE_DIR,
-    "client_secret.json"
-)
-
-token_file = os.path.join(
-    BASE_DIR,
-    "token.json"
-)
+if os.getenv("RENDER"):
+    client_secret = "/etc/secrets/client_secret.json"
+    token_file = "/etc/secrets/token.json"
+else:
+    client_secret = os.path.join(BASE_DIR, "client_secret.json")
+    token_file = os.path.join(BASE_DIR, "token.json")
 
 
 # =========================
@@ -53,7 +49,6 @@ def get_google_credentials():
 
     credentials = None
 
-    # Check if we already have saved credentials
     if os.path.exists(token_file):
 
         credentials = Credentials.from_authorized_user_file(
@@ -61,7 +56,6 @@ def get_google_credentials():
             SCOPES
         )
 
-    # If credentials don't exist or are no longer valid
     if not credentials or not credentials.valid:
 
         if credentials and credentials.expired and credentials.refresh_token:
@@ -77,19 +71,11 @@ def get_google_credentials():
 
             credentials = flow.run_local_server(port=0)
 
-        # Save credentials for future runs
-        with open(token_file, "w") as token:
-
-            token.write(
-                credentials.to_json()
-            )
+        if not os.getenv("RENDER"):
+            with open(token_file, "w") as token:
+                token.write(credentials.to_json())
 
     return credentials
-
-
-# =========================
-# SYNC EMPLOYEES
-# =========================
 
 def sync_employees():
 
