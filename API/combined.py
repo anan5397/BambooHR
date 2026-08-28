@@ -253,8 +253,7 @@ def sync_employees():
 
     spreadsheet = client.open_by_key(
     GOOGLE_SHEET_ID
-)
-    print("GOOGLE SHEET ID:", GOOGLE_SHEET_ID)
+)   #THIS RIGHT HEREEEEEEEEEEEEEEEEEEE
     worksheet = spreadsheet.sheet1
 
     # --------------------------------
