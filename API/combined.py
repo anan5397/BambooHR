@@ -163,10 +163,7 @@ def get_all_employees():
     print("BambooHR Status:", response.status_code)
     print("BambooHR Response:", repr(response.text))
 
-    print(
-        "BambooHR Status:",
-        response.status_code
-    )
+
 
     if response.status_code != 200:
 
@@ -256,7 +253,7 @@ def sync_employees():
     spreadsheet = client.open_by_key(
     GOOGLE_SHEET_ID
 )
-
+    print("GOOGLE SHEET ID:", GOOGLE_SHEET_ID)
     worksheet = spreadsheet.sheet1
 
     # --------------------------------
