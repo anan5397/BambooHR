@@ -160,11 +160,6 @@ def get_all_employees():
     }
 )
 
-    print("BambooHR Status:", response.status_code)
-    print(f"Retrieved {len(employees)} employees")
-
-
-
     if response.status_code != 200:
 
         raise Exception(
