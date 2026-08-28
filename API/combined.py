@@ -161,7 +161,7 @@ def get_all_employees():
 )
 
     print("BambooHR Status:", response.status_code)
-    print("BambooHR Response:", repr(response.text))
+    print(f"Retrieved {len(employee)} employees")
 
 
 
