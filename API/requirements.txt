@@ -5,3 +5,4 @@ gspread
 google-auth
 google-auth-oauthlib
 python-dotenv
+google-api-python-client
