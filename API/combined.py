@@ -346,7 +346,7 @@ def log_onboarding(
     worksheet = spreadsheet.worksheet(
         "Onboarding Log"
     )
-
+    print("GOOGLE SHEET ID:", GOOGLE_SHEET_ID)
     # --------------------------------
     # Add audit record
     # --------------------------------
