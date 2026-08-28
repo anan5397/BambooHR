@@ -146,8 +146,8 @@ def get_google_credentials():
 def get_all_employees():
 
     url = (
-        f"https://api.bamboohr.com/api/gateway.php/"
-        f"{subdomain}/v1/employees/directory"
+    f"https://{subdomain}.bamboohr.com/"
+    f"api/v1/employees/directory"
     )
 
     response = requests.get(
