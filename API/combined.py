@@ -148,15 +148,20 @@ def get_all_employees():
     url = (
     f"https://{subdomain}.bamboohr.com/"
     f"api/v1/employees/directory"
-    )
+)
+
+    print("BambooHR URL:", url)
 
     response = requests.get(
-        url,
+         url,
         auth=(api_key, "x"),
         headers={
-            "Accept": "application/json"
-        }
-    )
+        "Accept": "application/json"
+    }
+)
+
+    print("BambooHR Status:", response.status_code)
+    print("BambooHR Response:", repr(response.text))
 
     print(
         "BambooHR Status:",
