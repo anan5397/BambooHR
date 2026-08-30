@@ -200,7 +200,14 @@ def get_all_employees():
     print(
         f"Retrieved {len(employees)} employees"
     )
-    print(data["employees"][0])
+    for employee in data["employees"]:
+        print(
+            employee.get("id"),
+            employee.get("displayName"),
+            employee.get("workEmail")
+        )
+
+    print("TOTAL FROM BAMBOOHR:", len(data["employees"]))
     return employees
 
 
