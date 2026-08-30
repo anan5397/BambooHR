@@ -169,9 +169,9 @@ def get_all_employees():
     data = response.json()
 
     employees = []
-
+    
     for employee in data["employees"]:
-
+        
         employee_data = {
 
             "id": employee.get("id"),
@@ -200,7 +200,7 @@ def get_all_employees():
     print(
         f"Retrieved {len(employees)} employees"
     )
-
+    print(data["employees"][0])
     return employees
 
 
